@@ -23,8 +23,14 @@ var MainPage = React.createClass({
             });
 
             return (
-                <div className="races-wrapper">
-                    {races}
+                <div className="main-app">
+                    <center>
+                        <h1>Election Results Viewer</h1>
+                        <p>This page will show the results, in terms of electoral votes, won by each candidate in each state</p>
+                        <div className="races-wrapper">
+                            {races}
+                        </div>
+                    </center>
                 </div>
             );
         }
