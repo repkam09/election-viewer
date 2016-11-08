@@ -31,11 +31,17 @@ var MainPage = React.createClass({
     },
 
     componentDidMount: function () {
-        var that = this;
-        getreq("https://api.repkam09.com/api/election/full").then((result) => {
-            var data = JSON.parse(result);
-            that.setState({ hasData: true, data });
-        });
+        var debug = false;
+
+        if (debug) {
+            this.setState({ hasData: true, data: exampledata });
+        } else {
+            var that = this;
+            getreq("https://api.repkam09.com/api/election/full").then((result) => {
+                var data = JSON.parse(result);
+                that.setState({ hasData: true, data });
+            });
+        }
     }
 });
 
