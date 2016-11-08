@@ -7,3 +7,5 @@ The webapp here is created using React for the ui elements and is built with bro
 
 
 The JSON data endpoint for this project can be found here: https://api.repkam09.com/api/election/full
+
+A live version of this site can be found here: https://repkam09.com/election/
