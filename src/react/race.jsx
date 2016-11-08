@@ -17,7 +17,7 @@ var RaceDisplay = React.createClass({
                 displayClass = "green-text";
             }
             return (
-                    <div className={displayClass}>{can.lname} has {can.evotes} out of {rd.evotes}</div>
+                    <div className={displayClass}>{can.fname} {can.lname} has {can.evotes} out of {rd.evotes}</div>
             )
         });
         

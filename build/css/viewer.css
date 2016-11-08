@@ -1,18 +1,22 @@
 body {
-    background-color: black;
+    background-color: white;
 }
 
 h1 {
-    color: red;
-    margin-left: 20px;
+    color: black;
+    margin-left: 10px;
 }
 
 .race-display {
-    background-color: black;
+    background-color: gray;
     color: white;
     display: inline-block;
     text-align: center;
     width: 300px;
+    height: 200px;
+    margin: 5px;
+    box-shadow: 4px 4px 6px lightgray;
+    overflow: hidden;
 }
 
 .white-text {
