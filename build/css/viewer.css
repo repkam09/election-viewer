@@ -35,6 +35,10 @@ progress {
   border-radius: 9px;
 }
 
+td {
+    text-align: center;
+}
+
 .white-text {
     color: white;
 }

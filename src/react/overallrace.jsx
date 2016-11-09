@@ -14,7 +14,7 @@ var OverallRace = React.createClass({
 
             return (
                 <div>
-                    {can.fname} {can.lname} is {progress}% of the way to 270. {can.evotes} out of 270.
+                    {can.fname} {can.lname} is {progress}% of the way to 270. Currently {can.evotes} out of 270.
                 </div>
             )
         });
@@ -22,10 +22,20 @@ var OverallRace = React.createClass({
         var cssclass = "overall-race-display " + displayClass;
         return (
             <div className={cssclass} >
-                <h1>Overall Presidential Race</h1>
-                {stats}
-                <div>{rd.pctsrep}% of the vote is reporting</div>
-                <br />
+            <center>
+                <table>
+                    <tr>
+                        <td><img src="img/trump.png" width={150} /></td>
+                        <td>
+                            <h1>Overall Presidential Race</h1>
+                            {stats}
+                            <div>{rd.pctsrep}% of the vote is reporting</div>
+                            <br />
+                        </td>
+                        <td><img src="img/clinton.png" width={180} /></td>
+                    </tr>
+                </table>
+                </center>
             </div>
         );
     },
