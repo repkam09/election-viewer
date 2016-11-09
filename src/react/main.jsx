@@ -52,10 +52,20 @@ var MainPage = React.createClass({
 
     componentDidMount: function () {
         var that = this;
+        // Automatically trigger the first get.
         getreq("https://api.repkam09.com/api/election/full").then((result) => {
-            var data = JSON.parse(result);
-            that.setState({ hasData: true, data });
-        });
+                var data = JSON.parse(result);
+                that.setState({ hasData: true, data });
+            });
+
+            // Continue to pull data every 10 seconds
+        setInterval(() => {
+            getreq("https://api.repkam09.com/api/election/full").then((result) => {
+                var data = JSON.parse(result);
+                that.setState({ hasData: true, data });
+            });
+        }, 10000);
+
     }
 });
 

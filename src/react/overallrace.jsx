@@ -14,7 +14,7 @@ var OverallRace = React.createClass({
 
             return (
                 <div>
-                    {can.fname} {can.lname} is {progress}% of the way to 270
+                    {can.fname} {can.lname} is {progress}% of the way to 270. {can.evotes} out of 270.
                 </div>
             )
         });
