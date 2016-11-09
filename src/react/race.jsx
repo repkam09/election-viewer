@@ -12,7 +12,7 @@ var RaceDisplay = React.createClass({
                 displayClass = "colour-" + can.party;
             }
             return (
-                <div>{can.fname} {can.lname} has {can.evotes} out of {rd.evotes}</div>
+                <div key={can.id}>{can.fname} {can.lname} has {can.evotes} out of {rd.evotes}</div>
             )
         });
 
