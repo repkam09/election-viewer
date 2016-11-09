@@ -26,14 +26,12 @@ var OverallRace = React.createClass({
                 <table>
                     <tbody>
                     <tr>
-                        <td><img src="img/trump.png" width={150} /></td>
                         <td>
                             <h1>Overall Presidential Race</h1>
                             {stats}
                             <div>{rd.pctsrep}% of the vote is reporting</div>
                             <br />
                         </td>
-                        <td><img src="img/clinton.png" width={180} /></td>
                     </tr>
                     </tbody>
                 </table>
