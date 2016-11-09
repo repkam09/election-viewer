@@ -5,12 +5,6 @@ var RaceDisplay = React.createClass({
     render: function () {
         const rd = this.props.data;
 
-        var total = rd.evotes;
-        var telect = rd.candidates[0].evotes / total;
-        var celect = rd.candidates[1].evotes / total;
-
-        var chartdata = [telect, celect];
-
         var stats = rd.candidates.map((can) => {
             var displayClass = "white-text";
             if (can.evotes > 0) {

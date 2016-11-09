@@ -10,8 +10,14 @@ var MainPage = React.createClass({
     render: function () {
         if (!this.state.hasData) {
             return (
-                <div>
-                    <p>Loading...</p>
+                <div className="main-app">
+                    <center>
+                        <h1>Election Results Viewer</h1>
+                        <p>This page will show the results, in terms of electoral votes, won by each candidate in each state</p>
+                        <div className="races-wrapper">
+                            Loading Results
+                        </div>
+                    </center>
                 </div>
             );
         } else {
@@ -37,17 +43,11 @@ var MainPage = React.createClass({
     },
 
     componentDidMount: function () {
-        var debug = false;
-
-        if (debug) {
-            this.setState({ hasData: true, data: exampledata });
-        } else {
-            var that = this;
-            getreq("https://api.repkam09.com/api/election/full").then((result) => {
-                var data = JSON.parse(result);
-                that.setState({ hasData: true, data });
-            });
-        }
+        var that = this;
+        getreq("https://api.repkam09.com/api/election/full").then((result) => {
+            var data = JSON.parse(result);
+            that.setState({ hasData: true, data });
+        });
     }
 });
 
