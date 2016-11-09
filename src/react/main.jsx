@@ -35,6 +35,27 @@ var MainPage = React.createClass({
                 }
             });
 
+
+
+            // Look at the polling info:
+            var polls = this.state.data.polls.map((poll) => {
+                var question = poll.question;
+                var answers = poll.answers.map((answer) => {
+                    return (
+                        <div>{answer.pct + "%" + " " + answer.answer}</div>
+                    );
+                });
+
+                return (
+                    <div className="question-block">
+                        {question}
+                        {answers}
+                        <br />
+                    </div>
+                );
+                
+            });
+
             return (
                 <div className="main-app">
                     <center>
@@ -44,6 +65,8 @@ var MainPage = React.createClass({
                         <div className="races-wrapper">
                             <OverallRace data={usarace} key={usarace.raceid} />
                             {races}
+                            <h3>Polling Questions</h3>
+                            {polls}
                         </div>
                     </center>
                 </div>
@@ -56,7 +79,6 @@ var MainPage = React.createClass({
         // Automatically trigger the first get.
         getreq("https://api.repkam09.com/api/election/full").then((result) => {
                 var data = JSON.parse(result);
-                debugger;
                 that.setState({ hasData: true, data });
             });
 

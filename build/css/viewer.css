@@ -39,6 +39,17 @@ td {
     text-align: center;
 }
 
+.question-block {
+    color: black;
+    background-color: lightgray;
+    display: inline-block;
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    box-shadow: 4px 4px 6px lightgray;
+    overflow: hidden;
+}
+
 .white-text {
     color: white;
 }
