@@ -8,7 +8,6 @@ h1 {
 }
 
 .race-display {
-    background-color: gray;
     color: white;
     display: inline-block;
     text-align: center;
@@ -19,10 +18,50 @@ h1 {
     overflow: hidden;
 }
 
+.overall-race-display {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    height: 200px;
+    margin: 5px;
+    box-shadow: 4px 4px 6px lightgray;
+    overflow: hidden;
+}
+
+progress {
+  background-color: red;
+  border: 0;
+  height: 18px;
+  border-radius: 9px;
+}
+
 .white-text {
     color: white;
 }
 
 .green-text {
     color: green;
+}
+
+.colour-D {
+    background-color: blue;
+}
+
+
+.colour-R {
+    background-color: red;
+}
+
+
+.colour-GR {
+    background-color: green;
+}
+
+
+.colour-LB {
+    background-color: yellow;
+}
+
+.colour-none {
+    background-color: gray;
 }

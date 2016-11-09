@@ -1,25 +1,28 @@
 const React = require('react');
-var PieChart = require("react-chartjs").Pie;
 
-var RaceDisplay = React.createClass({
+var OverallRace = React.createClass({
     render: function () {
         const rd = this.props.data;
-
         var displayClass = "colour-none";
         var electcount = 0;
         var stats = rd.candidates.map((can) => {
-            if (can.evotes > 0 && can.evotes > electcount) {
+            if (can.evotes > 270 && can.evotes > electcount) {
                 displayClass = "colour-" + can.party;
             }
+
+            var progress = ((can.evotes / 270) * 100).toFixed(2)
+
             return (
-                <div>{can.fname} {can.lname} has {can.evotes} out of {rd.evotes}</div>
+                <div>
+                    {can.fname} {can.lname} is {progress}% of the way to 270
+                </div>
             )
         });
 
-        var cssclass = "race-display " + displayClass;
+        var cssclass = "overall-race-display " + displayClass;
         return (
             <div className={cssclass} >
-                <h1>{this.props.state}</h1>
+                <h1>Overall Presidential Race</h1>
                 {stats}
                 <div>{rd.pctsrep}% of the vote is reporting</div>
                 <br />
@@ -28,4 +31,4 @@ var RaceDisplay = React.createClass({
     },
 });
 
-module.exports = RaceDisplay;
+module.exports = OverallRace;

@@ -1,6 +1,7 @@
 const React = require('react');
 const exampledata = require('../exampledata.json');
 const Race = require('./race.jsx');
+const OverallRace = require('./overallrace.jsx');
 
 var MainPage = React.createClass({
 
@@ -22,10 +23,16 @@ var MainPage = React.createClass({
             );
         } else {
             // If we get to here, we have valid data!
+            var usarace = null;
             var races = this.state.data.races.map((race) => {
-                return (
-                    <Race state={race.state} data={race} key={race.raceid} />
-                )
+                if (race.state !== "UNITED STATES") {
+                    return (
+                        <Race state={race.state} data={race} key={race.raceid} />
+                    )
+                } else {
+                    // Grab the overall USA race out of the others
+                    usarace = race;
+                }
             });
 
             return (
@@ -34,6 +41,7 @@ var MainPage = React.createClass({
                         <h1>Election Results Viewer</h1>
                         <p>This page will show the results, in terms of electoral votes, won by each candidate in each state</p>
                         <div className="races-wrapper">
+                            <OverallRace data={usarace} key={usarace.raceid} />
                             {races}
                         </div>
                     </center>
