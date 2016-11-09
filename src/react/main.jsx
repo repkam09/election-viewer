@@ -40,6 +40,7 @@ var MainPage = React.createClass({
                     <center>
                         <h1>Election Results Viewer</h1>
                         <p>This page will show the results, in terms of electoral votes, won by each candidate in each state</p>
+                        <p>You can find the source code for this project <a href="https://github.com/repkam09/election-viewer">here</a></p>
                         <div className="races-wrapper">
                             <OverallRace data={usarace} key={usarace.raceid} />
                             {races}
