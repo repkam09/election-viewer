@@ -55,6 +55,7 @@ var MainPage = React.createClass({
         // Automatically trigger the first get.
         getreq("https://api.repkam09.com/api/election/full").then((result) => {
                 var data = JSON.parse(result);
+                debugger;
                 that.setState({ hasData: true, data });
             });
 

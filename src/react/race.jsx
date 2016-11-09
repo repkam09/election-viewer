@@ -17,11 +17,20 @@ var RaceDisplay = React.createClass({
         });
 
         var cssclass = "race-display " + displayClass;
+        var timestamp = rd.ts;
+        var date = "";
+        if (timestamp === 0) {
+            date = "Has not reported yet";
+        } else {
+            date = "Last updated " + new Date(timestamp).toLocaleTimeString();
+        }
+
         return (
             <div className={cssclass} >
                 <h1>{this.props.state}</h1>
                 {stats}
-                <div>{rd.pctsrep}% of the vote is reporting</div>
+                <div>{rd.pctsrep}% of the vote is reporting </div>
+                <div>{date}</div>
                 <br />
             </div>
         );
