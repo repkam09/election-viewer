@@ -1,5 +1,5 @@
 const React = require('react');
-const exampledata = require('../exampledata.json');
+const finalresults = require('../results.json');
 const Race = require('./race.jsx');
 const OverallRace = require('./overallrace.jsx');
 
@@ -36,25 +36,26 @@ var MainPage = React.createClass({
             });
 
 
-
-            // Look at the polling info:
-            var polls = this.state.data.polls.map((poll) => {
-                var question = poll.question;
-                var answers = poll.answers.map((answer) => {
-                    return (
-                        <div>{answer.pct + "%" + " " + answer.answer}</div>
-                    );
-                });
-
-                return (
-                    <div className="question-block">
-                        {question}
-                        {answers}
-                        <br />
-                    </div>
-                );
-                
-            });
+            /*
+                        // Look at the polling info:
+                        var polls = this.state.data.polls.map((poll) => {
+                            var question = poll.question;
+                            var answers = poll.answers.map((answer) => {
+                                return (
+                                    <div>{answer.pct + "%" + " " + answer.answer}</div>
+                                );
+                            });
+            
+                            return (
+                                <div className="question-block">
+                                    {question}
+                                    {answers}
+                                    <br />
+                                </div>
+                            );
+                            
+                        });
+            */
 
             return (
                 <div className="main-app">
@@ -64,9 +65,8 @@ var MainPage = React.createClass({
                         <p>You can find the source code for this project <a href="https://github.com/repkam09/election-viewer">here</a></p>
                         <div className="races-wrapper">
                             <OverallRace data={usarace} key={usarace.raceid} />
+                            <br />
                             {races}
-                            <h3>Polling Questions</h3>
-                            {polls}
                         </div>
                     </center>
                 </div>
@@ -75,21 +75,24 @@ var MainPage = React.createClass({
     },
 
     componentDidMount: function () {
-        var that = this;
+        this.setState({ hasData: true, data: finalresults });
+        // Because the election is now over, there is no reason this should be pulling live data.
         // Automatically trigger the first get.
+        /*
         getreq("https://api.repkam09.com/api/election/full").then((result) => {
-                var data = JSON.parse(result);
-                that.setState({ hasData: true, data });
-            });
+            var data = JSON.parse(result);
+            that.setState({ hasData: true, data });
+        });
 
-            // Continue to pull data every 10 seconds
+
+        // Continue to pull data every 10 seconds
         setInterval(() => {
             getreq("https://api.repkam09.com/api/election/full").then((result) => {
                 var data = JSON.parse(result);
                 that.setState({ hasData: true, data });
             });
         }, 10000);
-
+        */
     }
 });
 
